@@ -7,53 +7,836 @@
   <title>Scarabite | Coming Soon</title>
   <link rel="icon" href="resources/img/logo.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
+    /* New: Define accent color variable */
+    :root {
+      --accent-color: #17C8B4;
+    }
+
     body {
-      background: #f8f9fa;
-      color: #333;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+
+    .navbar-nav .nav-link {
+      font-size: 1.1rem;
+      margin-left: 1rem;
+      color: #000;
+
+    }
+
+    /* Updated: Navbar link hover using accent color */
+    .navbar-nav .nav-link:hover {
+      color: var(--accent-color);
+    }
+
+    .hero {
+      background:
+        linear-gradient(135deg,
+          rgba(23, 200, 180, 0.95) 0%,
+          rgba(23, 200, 180, 0.85) 30%,
+          rgba(0, 0, 0, 0.8) 100%),
+        repeating-linear-gradient(45deg,
+          rgba(255, 255, 255, 0.05) 0px,
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 1px,
+          transparent 10px);
+      background-size: cover, 20px 20px;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
       text-align: center;
-      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(circle at 20% 50%,
+          rgba(23, 200, 180, 0.4) 0%,
+          transparent 50%),
+        radial-gradient(circle at 80% 50%,
+          rgba(0, 0, 0, 0.3) 0%,
+          transparent 50%);
+      z-index: 1;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero .lead {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero .btn-custom {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .hero .btn-custom:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .lead {
+        font-size: 1.2rem;
+      }
+    }
+
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero .lead {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-custom {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease, border-color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn-custom:hover {
+      background-color: white;
+      color: black;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .lead {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Add these styles in your existing <style> tag */
+    .why-us {
+      padding: 0 0 6rem;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    }
+
+    .why-us h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .why-us h2:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #000;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .feature-card p {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    /* Add a new style for feature-card spacing */
+    .feature-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #222;
       display: flex;
       align-items: center;
+      gap: 0.5rem;
+      border-left: 3px solid var(--accent-color);
+      padding-left: 0.5rem;
+    }
+
+    .feature-icon {
+      font-size: 1.5rem;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      flex-direction: column;
+      min-width: 32px;
     }
 
-    .logo {
-      max-width: 400px;
-      animation: fadeIn 1.5s ease-in-out;
+    @media (max-width: 768px) {
+      .feature-card {
+        margin-bottom: 2rem;
+      }
     }
 
-    @keyframes fadeIn {
+    .approach {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    }
+
+    .approach h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .approach h2:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #000;
+    }
+
+    .approach-intro {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+
+    .focus-section h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .focus-section h2:after {
+      background: white;
+    }
+
+    .focus-area h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #222;
+      border-left: 3px solid var(--accent-color);
+      padding-left: 1rem;
+    }
+
+    .focus-area p {
+      color: #666;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .focus-area {
+        margin-bottom: 2rem;
+      }
+    }
+
+    /* Updated: Focus section background with gradient and pattern */
+    .focus-section {
+      background: linear-gradient(135deg,
+          rgba(23, 200, 180, 0.95) 0%,
+          rgba(23, 200, 180, 0.98) 100%),
+        repeating-linear-gradient(45deg,
+          rgba(255, 255, 255, 0.1) 0px,
+          rgba(255, 255, 255, 0.1) 2px,
+          transparent 2px,
+          transparent 10px);
+      background-size: cover, 20px 20px;
+      padding: 4rem 0;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Add subtle animation to focus areas */
+    .focus-area {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 15px;
+      padding: 2rem;
+      height: 100%;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    .focus-area:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Add subtle background animation */
+    .focus-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 50%);
+      animation: rotate 30s linear infinite;
+    }
+
+    @keyframes rotate {
       from {
-        opacity: 0;
-        transform: translateY(-20px);
+        transform: rotate(0deg);
       }
 
       to {
-        opacity: 1;
-        transform: translateY(0);
+        transform: rotate(360deg);
       }
     }
 
+    .btn-custom {
+      background-color: #000;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 0.5rem 1rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-top: 1rem;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+    }
+
     .coming-soon {
-      font-size: 3rem;
-      font-weight: bold;
-      margin-top: 20px;
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 1rem;
     }
 
     .stay-tuned {
+      text-align: center;
       font-size: 1.5rem;
-      font-weight: 300;
-      margin-top: 10px;
+      margin-top: 0.5rem;
+    }
+
+    /* Add these styles inside your existing <style> tag */
+    .services {
+      background-color: #fafafa;
+      padding: 6rem 0;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .services h2:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: #000;
+    }
+
+    .service-card {
+      background-color: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      height: 100%;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .service-card h3 {
+      color: #222;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .service-icon {
+      font-size: 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+    }
+
+    .service-card h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, #000 30%, transparent);
+    }
+
+    .service-card h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #000;
+    }
+
+    .service-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1.5rem;
+    }
+
+    .service-list li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.8rem;
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .service-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #000;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-list li::before {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 768px) {
+      .services {
+        padding: 4rem 0;
+      }
+
+      .service-card {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .footer {
+      background-color: #222;
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer h4 {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-contact {
+      margin-bottom: 2rem;
+    }
+
+    .footer-contact p {
+      color: #ccc;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact a:hover {
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .social-links a {
+      color: #fff;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .social-links a:hover {
+      color: var(--accent-color);
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 3rem;
+      padding-top: 2rem;
+      text-align: center;
+      color: #999;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="resources/img/logo.svg" alt="Logo" class="logo img-fluid" width="300">
+      </a>
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Powering Intelligence:</h1>
+      <h1>From Data to AI-driven Solutions</h1>
+      <p class="lead">Harness the power of intelligent data extraction with our cutting-edge AI solutions.</p>
+      <a href="#services" class="btn btn-custom mt-3">Discover More</a>
+    </div>
+  </header>
+
+  <section id="approach" class="approach">
+    <div class="container">
+      <h2>Our Approach: Intelligent, Scalable, Impactful</h2>
+      <div class="approach-intro">
+        <p>Our approach is built on understanding your unique challenges, designing tailored solutions, and deploying
+          scalable, future-proof systems. By combining advanced engineering, automation, and machine learning, we
+          transform complex data into actionable intelligence, enabling businesses to operate smarter, faster, and more
+          efficiently.</p>
+      </div>
+  </section>
+
+  <!-- Add this section after the hero and before the services section -->
+  <section id="about" class="why-us">
+    <div class="container">
+      <h2 class="text-center mb-5">Why Scarabite?</h2>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <h3><span class="feature-icon">🚀</span>Expertise That Drives Innovation</h3>
+            <p>Our team consists of seasoned AI engineers, cloud architects, and data scientists with deep technical
+              expertise in automation, machine learning, and cloud infrastructure. We stay ahead of industry trends to
+              provide state-of-the-art solutions that deliver real impact.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <h3><span class="feature-icon">⚡</span>Tailored AI & Data Solutions</h3>
+            <p>We don't believe in one-size-fits-all approaches. Every business is unique, and so are our solutions.
+              Whether you need custom AI models, optimized data pipelines, or seamless cloud integration, we design
+              solutions that fit your exact needs.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <h3><span class="feature-icon">🔒</span>Security & Compliance</h3>
+            <p>We build secure, compliant, and robust AI and cloud infrastructures that align with industry standards,
+              ensuring your data is always protected.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="feature-card">
+            <h3><span class="feature-icon">📈</span>Scalable Solutions</h3>
+            <p>We develop solutions that adapt and scale with your business. Whether you're a startup or an enterprise,
+              our AI and cloud-driven services are designed to optimize performance while reducing costs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <div class="focus-section">
+    <div class="container">
+      <h2>What we focus on</h2>
+      <div class="row g-4">
+        <!-- First Row -->
+        <div class="col-md-6">
+          <div class="focus-area">
+            <h3>AI Augmentation</h3>
+            <p>Our AI solutions enhance automation and intelligence, integrating machine learning and NLP to improve
+              efficiency, workflows, and user experience.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="focus-area">
+            <h3>Data Engineering</h3>
+            <p>We design and optimize data pipelines to streamline collection, processing, and management, turning
+              raw
+              data into a valuable asset for automation and decision-making at scale.</p>
+          </div>
+        </div>
+        <!-- Second Row -->
+        <div class="col-md-6">
+          <div class="focus-area">
+            <h3>AWS Cloud Services</h3>
+            <p>We leverage AWS to provide scalable, secure, and cost-efficient cloud infrastructure, ensuring high
+              availability and seamless deployment for your applications and AI models.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="focus-area">
+            <h3>E2E Solutions</h3>
+            <p>From development to deployment, we create scalable, secure, and high-performance technology solutions
+              tailored to your business needs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add this after the header section and before the logo -->
+  <section id="services" class="services py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="service-card">
+            <h3>Generative AI</h3>
+            <ul class="service-list">
+              <li>Content generation</li>
+              <li>Conversational interfaces and summarizations</li>
+              <li>Enhanced chat and search experience</li>
+              <li>Ethical and responsible AI</li>
+              <li>Domain-specific applications</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <h3>Natural Language Processing</h3>
+            <ul class="service-list">
+              <li>Virtual assistants and chatbots</li>
+              <li>Sentiment analysis</li>
+              <li>Named entity recognition</li>
+              <li>Text analytics</li>
+              <li>Language translation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <h3>Web Crawling & Data Scraping</h3>
+            <ul class="service-list">
+              <li>Automated data extraction</li>
+              <li>Structured data formatting</li>
+              <li>Anti-bot evasion</li>
+              <li>Adaptive crawlers</li>
+              <li>Compliance & ethics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <h3>Data Pipeline Automation</h3>
+            <ul class="service-list">
+              <li>ETL workflows for data processing</li>
+              <li>Multi-source data integration</li>
+              <li>Automated validation</li>
+              <li>Optimized performance</li>
+              <li>Real-time alerts</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card">
+            <h3>Custom Software Development</h3>
+            <ul class="service-list">
+              <li>Full-Stack Application Development</li>
+              <li>DevOps & Automation</li>
+              <li>Model deployment</li>
+              <li>Database architectures and API integrations</li>
+              <li>CI/CD pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 footer-contact">
+          <h4>Contact Details</h4>
+          <p>
+            <i class="fas fa-building"></i> <strong>Offices:</strong><br>
+            <span class="ms-4">30 N Gould St Ste R<br>
+              <span class="ms-4">Sheridan, WY 82801</span>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i> <strong>Email:</strong><br>
+            <span class="ms-4"><a href="mailto:admin@scarabite.com">admin@scarabite.com</a></span>
+          </p>
+        </div>
+        <div class="col-md-4 footer-contact">
+          <h4>Quick Links</h4>
+          <p><i class="fas fa-chevron-right"></i> <a href="#about">About Us</a></p>
+          <p><i class="fas fa-chevron-right"></i> <a href="#services">Services</a></p>
+          <p><i class="fas fa-chevron-right"></i> <a href="#approach">Our Approach</a></p>
+          <p><i class="fas fa-chevron-right"></i> <a href="#contact">Contact</a></p>
+        </div>
+        <div class="col-md-4 footer-contact">
+          <h4>Follow Us</h4>
+          <p><i class="fas fa-globe"></i> Stay up to date with our latest news and updates.</p>
+          <ul class="social-links">
+            <li><a href="https://www.linkedin.com/company/scarabite" target="_blank" title="LinkedIn" rel="noopener">
+                <i class="fab fa-linkedin-in"></i>
+              </a></li>
+            <li><a href="https://github.com/scarabite" target="_blank" title="GitHub" rel="noopener">
+                <i class="fab fa-github"></i>
+              </a></li>
+          </ul>
+        </div>
+      </div>
+  </footer>
+
+
+  <!-- 
   <img src="resources/img/logo.svg" alt="Logo" class="logo img-fluid">
   <h1 class="coming-soon">Coming Soon</h1>
-  <p class="stay-tuned">Stay tuned</p>
+  <p class="stay-tuned">Stay tuned</p> -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
