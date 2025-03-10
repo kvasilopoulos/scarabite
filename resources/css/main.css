@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: var(--deep-blue);
 }
 
 .logo {
@@ -74,10 +75,12 @@ body {
     overflow: hidden;
 }
 
+
 .hero::before {
+    background: linear-gradient(90deg, var(--deep-blue), var(--brand-teal));
     content: '';
     position: absolute;
-    top: -10%;
+    top: 0;
     right: -10%;
     width: 100%;
     height: 150%;
@@ -304,7 +307,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 2px;
 }
 
@@ -469,7 +472,7 @@ body {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     letter-spacing: 2px;
 }
 
@@ -705,7 +708,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #222;
+    background-color: var(--deep-blue);
     color: #fff;
     padding: 4rem 0 2rem;
 }

@@ -5,20 +5,31 @@
 .service-hero {
     padding: 8rem 0 4rem;
     margin-top: 5rem;
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    /* background: linear-gradient(90deg, var(--deep-blue), var(--brand-teal)); */
 }
 
 .service-hero-title {
     font-size: 3.5rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 2rem;
     color: var(--deep-blue);
 }
 
 .service-hero-description {
     font-size: 1.4rem;
-    color: #333;
     line-height: 1.6;
     margin-bottom: 40px;
     max-width: 800px;
@@ -28,8 +39,18 @@
 
 .service-section {
     background-color: #fff;
-    padding: 60px 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 80px 0;
+    position: relative;
+}
+
+.service-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
 }
 
 .service-title h2 {
@@ -37,16 +58,33 @@
     color: var(--brand-teal);
     margin-bottom: 30px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+}
+
+.service-title h2:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--deep-blue), var(--brand-teal));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.service-title h2:hover:after {
+    width: 100%;
 }
 
 .service-description {
-    font-size: 1.4rem;
-    color: #333;
-    line-height: 1.6;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1.2rem;
+    color: #495057;
+    line-height: 1.8;
+    /* margin-bottom: 30px; */
+    position: relative;
+    /* padding-bottom: 20px; */
 }
 
 .service-features {
@@ -59,7 +97,7 @@
     margin-bottom: 15px;
     padding-left: 25px;
     position: relative;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #444;
     transition: color 0.3s ease;
 }

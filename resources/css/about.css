@@ -11,6 +11,7 @@
 .about-hero {
     padding: 8rem 0 4rem;
     margin-top: 5rem;
+    background-color: #f8f9fa;
     /* background: linear-gradient(135deg, var(--deep-blue) 0%, var(--brand-teal) 100%); */
     /* color: white; */
     text-align: center;
@@ -50,15 +51,15 @@
 .about-content {
     padding: 5rem 0;
     /* background-color: var(--neutral-beige); */
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
     position: relative;
 }
 
 .about-text {
     padding: 2rem;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); */
 }
 
 .about-text h2 {

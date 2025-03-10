@@ -6,6 +6,17 @@
     margin-top: 5rem;
     background-color: #f8f9fa;
     text-align: center;
+    /* background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); */
+}
+
+.contact-hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    /* background: linear-gradient(90deg, var(--deep-blue), var(--brand-teal)); */
 }
 
 .contact-hero-title {
