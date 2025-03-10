@@ -62,19 +62,19 @@
             <form id="contactForm" class="mt-4" netlify>
               <div class="mb-3">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" required>
+                <input type="text" name="name" class="form-control" id="name" required>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" required>
+                <input type="email" name="email" class="form-control" id="email" required>
               </div>
               <div class="mb-3">
                 <label for="subject" class="form-label">Subject</label>
-                <input type="text" class="form-control" id="subject" required>
+                <input type="text" name="subject" class="form-control" id="subject" required>
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="5" required></textarea>
+                <textarea name="message" class="form-control" id="message" rows="5" required></textarea>
               </div>
 
               <button type="submit" class="btn btn-custom">Send Message</button>
