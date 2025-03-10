@@ -2,10 +2,20 @@
 
 /* Contact page styles */
 .contact-hero {
-    background: white;
     padding-top: 5rem;
     margin-top: 5rem;
+    background-color: #f8f9fa;
     text-align: center;
+}
+
+.contact-hero p {
+    font-size: 1.4rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-content {
