@@ -1,0 +1,346 @@
+@import 'main.css';
+
+:root {
+    --brand-teal: #2A9D8F;
+    --neutral-beige: #F4F1DE;
+    --deep-blue: #264653;
+    --light-teal: rgba(42, 157, 143, 0.1);
+}
+
+/* About Hero Section */
+.about-hero {
+    padding: 8rem 0 4rem;
+    margin-top: 5rem;
+    /* background: linear-gradient(135deg, var(--deep-blue) 0%, var(--brand-teal) 100%); */
+    /* color: white; */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    opacity: 0.1;
+}
+
+.about-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    /* color: white; */
+    position: relative;
+}
+
+.about-hero-description {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    /* color: rgba(255, 255, 255, 0.9); */
+    position: relative;
+}
+
+/* About Content Section */
+.about-content {
+    padding: 5rem 0;
+    /* background-color: var(--neutral-beige); */
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.about-text {
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.about-text h2 {
+    color: var(--deep-blue);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--brand-teal);
+    border-radius: 2px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(42, 157, 143, 0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-teal);
+    box-shadow: 0 8px 15px rgba(42, 157, 143, 0.1);
+}
+
+.stat-card h3 {
+    color: var(--brand-teal);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+    color: var(--deep-blue);
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Core Values Section */
+.core-values {
+    padding: 5rem 0;
+    background: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.core-values::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--brand-teal), var(--deep-blue));
+}
+
+.section-title {
+    text-align: center;
+    color: var(--deep-blue);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--brand-teal);
+    margin: 1rem auto;
+    border-radius: 2px;
+}
+
+.value-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(42, 157, 143, 0.1);
+    overflow: hidden;
+}
+
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--brand-teal);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(42, 157, 143, 0.1);
+    border-color: var(--brand-teal);
+}
+
+.value-card:hover::before {
+    transform: scaleY(1);
+}
+
+.value-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--light-teal);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.value-icon i {
+    font-size: 1.8rem;
+    color: var(--brand-teal);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover .value-icon {
+    background: var(--brand-teal);
+}
+
+.value-card:hover .value-icon i {
+    color: white;
+}
+
+.value-card h3 {
+    color: var(--deep-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    position: relative;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+}
+
+/* Industries Section */
+.industries {
+    padding: 5rem 0;
+    /* background-color: var(--neutral-beige); */
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.industries-intro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--deep-blue);
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+
+.industry-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(42, 157, 143, 0.1);
+}
+
+.industry-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(42, 157, 143, 0.1);
+    border-color: var(--brand-teal);
+}
+
+.industry-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--brand-teal);
+}
+
+.industry-card h3 {
+    color: var(--deep-blue);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.industry-card p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.industries-outro {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--deep-blue);
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .about-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .about-hero-description {
+        font-size: 1.2rem;
+    }
+
+    .about-text {
+        padding: 1.5rem;
+    }
+
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+
+    .industry-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .industries-intro,
+    .industries-outro {
+        font-size: 1.1rem;
+    }
+
+    .value-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .value-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .value-icon i {
+        font-size: 1.5rem;
+    }
+}

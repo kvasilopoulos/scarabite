@@ -772,23 +772,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* About section */
-.about {
-    padding: 6rem 0;
-}
 
-.about h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--deep-blue);
-}
-
-.about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-}
 
 /* Animations */
 @keyframes waveFlow {
