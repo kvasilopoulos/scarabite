@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+.circle-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.circle-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.left-half {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #1CD4B6;
+    /* Teal/turquoise color */
+    left: 0;
+    transition: all 0.5s ease;
+}
+
+.right-half {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #0A1325;
+    /* Dark navy/near-black color */
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+.circle-container:hover .left-half {
+    background-color: #0fd0af;
+    /* Slightly brighter teal on hover */
+    transform: translateX(-5px);
+}
+
+.circle-container:hover .right-half {
+    background-color: #152042;
+    /* Slightly lighter navy on hover */
+    transform: translateX(5px);
+}
+
+.divider {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: white;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+.circle-container:hover .divider {
+    width: 4px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* <div class="circle-container"><div class="left-half"></div><div class="right-half"></div><div class="divider"></div></div> */

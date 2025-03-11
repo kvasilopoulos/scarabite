@@ -21,7 +21,7 @@
 
 .contact-hero-title {
     font-size: 3.5rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 2rem;
     color: var(--deep-blue);
 }
@@ -143,6 +143,18 @@
 @media (max-width: 768px) {
     .contact-hero {
         padding: 4rem 0;
+    }
+
+    .contact-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .contact-hero-description {
+        font-size: 1.2rem;
+    }
+
+    .contact-text {
+        padding: 1.5rem;
     }
 
     .contact-info-card,
