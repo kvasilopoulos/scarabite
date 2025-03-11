@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Circle SVG</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    svg {
+      width: 200px;
+      height: 200px;
+      transition: transform 0.5s ease;
+    }
+
+    svg:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .left-half {
+      transition: all 0.5s ease;
+    }
+
+    .right-half {
+      transition: all 0.5s ease;
+    }
+
+    .divider {
+      transition: all 0.5s ease;
+    }
+
+    svg:hover .left-half {
+      fill: #0fd0af;
+      transform: translateX(-2px);
+    }
+
+    svg:hover .right-half {
+      fill: #152042;
+      transform: translateX(2px);
+    }
+
+    svg:hover .divider {
+      stroke-width: 4;
+      filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7));
+    }
+
+    /* For export button */
+    .export-button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 15px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+
+    .export-button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <svg viewBox="0 0 100 100">
+    <defs>
+      <clipPath id="left-clip">
+        <rect x="0" y="0" width="50" height="100" />
+      </clipPath>
+      <clipPath id="right-clip">
+        <rect x="50" y="0" width="50" height="100" />
+      </clipPath>
+    </defs>
+
+    <!-- Left half -->
+    <circle class="left-half" cx="50" cy="50" r="50" fill="#1CD4B6" clip-path="url(#left-clip)" />
+
+    <!-- Right half -->
+    <circle class="right-half" cx="50" cy="50" r="50" fill="#0A1325" clip-path="url(#right-clip)" />
+
+    <!-- Divider line -->
+    <line class="divider" x1="50" y1="0" x2="50" y2="100" stroke="white" stroke-width="2" />
+  </svg>
+
+  <button class="export-button" onclick="exportSVG()">Export SVG</button>
+
+  <script>
+    function exportSVG() {
+      // Get the SVG element
+      const svg = document.querySelector('svg');
+
+      // Create a clone without the hover animations for export
+      const clonedSvg = svg.cloneNode(true);
+
+      // Set the proper namespaces
+      clonedSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+      // Convert SVG to string
+      const serializer = new XMLSerializer();
+      let svgString = serializer.serializeToString(clonedSvg);
+
+      // Create a Blob from the SVG string
+      const blob = new Blob([svgString], { type: 'image/svg+xml' });
+
+      // Create a download link and trigger it
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'split-circle.svg';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+
+</html>

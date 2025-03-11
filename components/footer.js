@@ -35,14 +35,6 @@ const footerTemplate = `
       </div>
     </div>
   </footer>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GZDHECJCL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2GZDHECJCL');
-</script>
 `;
 
 class Footer extends HTMLElement {
