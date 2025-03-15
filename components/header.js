@@ -1,8 +1,8 @@
 const headerTemplate = `
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
-        <img src="resources/img/reduced/logo.svg" alt="Logo" class="logo img-fluid" width="300">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="resources/img/logo2.png" alt="Logo" class="navbar-logo img-fluid"">
         <span class="brand-text">Scarabite</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

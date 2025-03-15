@@ -109,12 +109,11 @@
     margin-bottom: 0.5rem;
 }
 
-.contact-content .btn-custom {
+/* .contact-content .btn-custom {
     background: var(--deep-blue);
     color: white;
     border: none;
     padding: 0.8rem 2rem;
-    /* font-size: 1.1rem; */
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s ease;
@@ -137,7 +136,7 @@
 .contact-content.btn-custom:active {
     transform: translateY(2px);
     box-shadow: 0 2px 8px rgba(6, 17, 39, 0.1);
-}
+} */
 
 /* Responsive styles */
 @media (max-width: 768px) {

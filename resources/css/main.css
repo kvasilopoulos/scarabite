@@ -16,26 +16,75 @@ body {
     color: var(--deep-blue);
 }
 
-.logo {
+.btn-custom {
+    background: var(--deep-blue);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+    margin: 0 auto;
+    width: fit-content;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    background-size: 300% 100%;
+    background-image: linear-gradient(to left,
+            var(--brand-teal) 0%,
+            var(--brand-teal) 45%,
+            var(--deep-blue) 55%,
+            var(--deep-blue) 100%);
+    animation: gradientSlideRight 1s ease forwards;
+}
+
+.btn-custom:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(6, 17, 39, 0.2);
+    text-decoration: none;
+    animation: gradientSlideLeft 1s ease forwards;
+}
+
+@keyframes gradientSlideLeft {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes gradientSlideRight {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.navbar-logo {
     display: block;
     margin: 0;
-    width: 150px;
-    margin-bottom: -0.8rem;
-    margin-top: -0.8em;
+    width: 50px;
 }
 
 .navbar-brand {
     font-size: 2rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 2rem;
 }
 
 .brand-text {
     color: var(--deep-blue);
     font-size: 2rem;
     font-weight: 600;
-    margin-left: -2.5rem;
 }
 
 .navbar {
@@ -101,7 +150,6 @@ body {
     position: relative;
     overflow: hidden;
 }
-
 
 .hero::before {
     background: linear-gradient(90deg, var(--deep-blue), var(--brand-teal));
@@ -181,36 +229,6 @@ body {
     margin-right: auto;
     text-shadow: none;
     color: #333;
-}
-
-.hero .btn-custom {
-    background-color: var(--deep-blue);
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin: 0 auto;
-    width: fit-content;
-    cursor: pointer;
-    position: relative;
-    z-index: 10;
-}
-
-.hero .btn-custom:hover {
-    background-color: var(--brand-teal);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(6, 17, 39, 0.2);
-    text-decoration: none;
-}
-
-.hero .btn-custom:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 8px rgba(6, 17, 39, 0.1);
 }
 
 /* Approach section */
@@ -802,8 +820,6 @@ body {
     font-size: 0.9rem;
 }
 
-
-
 /* Animations */
 @keyframes waveFlow {
     0% {
@@ -1009,8 +1025,14 @@ body {
         background-color: rgba(23, 200, 180, 0.1);
     }
 
-    .logo {
-        width: 120px;
+    .navbar-logo {
+        width: 30px;
         margin: 0;
     }
+
+    .brand-text {
+        font-size: 1.5rem;
+    }
+
+
 }
