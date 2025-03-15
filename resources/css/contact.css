@@ -109,34 +109,20 @@
     margin-bottom: 0.5rem;
 }
 
-/* .contact-content .btn-custom {
-    background: var(--deep-blue);
-    color: white;
-    border: none;
-    padding: 0.8rem 2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin: 0 auto;
-    width: fit-content;
-    cursor: pointer;
+.contact-content .btn-custom {
     position: relative;
-    z-index: 10;
+    min-width: 140px;
 }
 
-.contact-content .btn-custom:hover {
-    background-color: var(--brand-teal);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(6, 17, 39, 0.2);
-    text-decoration: none;
+.contact-content .btn-custom:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
-.contact-content.btn-custom:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 8px rgba(6, 17, 39, 0.1);
-} */
+.spinner-border-sm {
+    margin-left: 8px;
+    vertical-align: middle;
+}
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -160,4 +146,44 @@
     .contact-form-card {
         margin-bottom: 2rem;
     }
+}
+
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.fa-check-circle {
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+#successModal .modal-content {
+    background-color: #ffffff;
+}
+
+#successModal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#successModal .btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
 }
