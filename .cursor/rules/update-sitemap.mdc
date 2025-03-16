@@ -3,6 +3,7 @@ description: This rule ensures that the sitemap is automatically updated before 
 globs: 
 alwaysApply: false
 ---
+
 # Update Sitemap Before Commit
 
 ## Description
