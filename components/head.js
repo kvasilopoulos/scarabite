@@ -4,11 +4,122 @@ class HeadContent extends HTMLElement {
     }
 
     connectedCallback() {
+        // Get the current page path
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const baseUrl = 'https://scarabite.com';
+        
+        // Define page-specific meta descriptions in both languages for SEO
+        const metaDescriptions = {
+            'index.html': {
+                en: 'Scarabite - Leading AI and data solutions provider. We specialize in Generative AI, NLP, web crawling, and custom software development for businesses across Europe and US.',
+                el: 'Scarabite - Κορυφαίος πάροχος λύσεων AI και δεδομένων. Ειδικευόμαστε σε Generative AI, NLP, web crawling και ανάπτυξη εξατομικευμένου λογισμικού για επιχειρήσεις σε Ευρώπη και ΗΠΑ.'
+            },
+            'services.html': {
+                en: 'AI Services - Generative AI, NLP, Web Crawling, Data Pipeline Automation, and Custom Software Development solutions by Scarabite.',
+                el: 'Υπηρεσίες AI - Generative AI, NLP, Web Crawling, Αυτοματοποίηση Data Pipeline και λύσεις Ανάπτυξης Εξατομικευμένου Λογισμικού από τη Scarabite.'
+            },
+            'about.html': {
+                en: 'About Scarabite - Empowering businesses through innovative AI solutions and data-driven insights across Europe and US.',
+                el: 'Σχετικά με τη Scarabite - Ενδυναμώνουμε επιχειρήσεις μέσω καινοτόμων λύσεων AI και insights βασισμένων σε δεδομένα σε Ευρώπη και ΗΠΑ.'
+            },
+            'contact.html': {
+                en: 'Contact Scarabite - Get in touch for AI and data solutions. Offices in Greece and US. Available in English and Greek.',
+                el: 'Επικοινωνία με Scarabite - Επικοινωνήστε μαζί μας για λύσεις AI και δεδομένων. Γραφεία σε Ελλάδα και ΗΠΑ.'
+            }
+        };
+
+        // Define keywords in both languages
+        const keywords = {
+            en: 'AI solutions, artificial intelligence, machine learning, data analytics, generative AI, NLP, web crawling, custom software, Greece, Europe, US',
+            el: 'λύσεις AI, τεχνητή νοημοσύνη, μηχανική μάθηση, ανάλυση δεδομένων, Generative AI, NLP, web crawling, εξατομικευμένο λογισμικό, Ελλάδα, Ευρώπη, ΗΠΑ'
+        };
+
+        const currentMetaDesc = metaDescriptions[currentPath] || metaDescriptions['index.html'];
+        
         document.head.innerHTML += `
+            <!-- Essential Meta Tags -->
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <!-- Primary Meta Tags -->
+            <meta name="description" content="${currentMetaDesc.en}">
+            <meta name="description" lang="el" content="${currentMetaDesc.el}">
+            <meta name="keywords" content="${keywords.en}, ${keywords.el}">
+            <meta name="author" content="Scarabite">
+            <meta name="geo.region" content="GR">
+            <meta name="geo.position" content="39.074208;21.824312">
+            <meta name="ICBM" content="39.074208, 21.824312">
+            
+            <!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:url" content="${baseUrl}/${currentPath}">
+            <meta property="og:title" content="Scarabite | ${document.title || 'AI Solutions'}">
+            <meta property="og:description" content="${currentMetaDesc.en}">
+            <meta property="og:description:el" content="${currentMetaDesc.el}">
+            <meta property="og:image" content="${baseUrl}/resources/img/logo2.png">
+            <meta property="og:locale" content="en_US">
+            <meta property="og:locale:alternate" content="el_GR">
+            
+            <!-- Twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:url" content="${baseUrl}/${currentPath}">
+            <meta name="twitter:title" content="Scarabite | ${document.title || 'AI Solutions'}">
+            <meta name="twitter:description" content="${currentMetaDesc.en}">
+            <meta name="twitter:image" content="${baseUrl}/resources/img/logo2.png">
+            
+            <!-- Language Alternates -->
+            <link rel="alternate" hreflang="en" href="${baseUrl}/${currentPath}">
+            <link rel="alternate" hreflang="el" href="${baseUrl}/el/${currentPath}">
+            <link rel="canonical" href="${baseUrl}/${currentPath}">
+            
+            <!-- Favicon and Stylesheets -->
             <link rel="icon" href="resources/img/logo2.png" type="image/png">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <link rel="stylesheet" href="resources/css/main.css">
+            
+            <!-- Schema.org Markup -->
+            <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Scarabite",
+                "url": "${baseUrl}",
+                "logo": "${baseUrl}/resources/img/logo2.png",
+                "description": {
+                    "@language": "en",
+                    "@value": "${currentMetaDesc.en}"
+                },
+                "description": {
+                    "@language": "el",
+                    "@value": "${currentMetaDesc.el}"
+                },
+                "address": [
+                    {
+                        "@type": "PostalAddress",
+                        "addressCountry": "US",
+                        "addressLocality": "Sheridan",
+                        "addressRegion": "WY",
+                        "postalCode": "82801",
+                        "streetAddress": "30 N Gould St Ste R"
+                    },
+                    {
+                        "@type": "PostalAddress",
+                        "addressCountry": "GR",
+                        "addressLocality": "Athens",
+                        "addressRegion": "Attica"
+                    }
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "admin@scarabite.com",
+                    "availableLanguage": ["English", "Greek"]
+                },
+                "areaServed": ["US", "GR", "EU"]
+            }
+            </script>
         `;
     }
 }
