@@ -1,0 +1,41 @@
+---
+description: This rule ensures that the sitemap is automatically updated before any commit is made.
+globs: 
+alwaysApply: false
+---
+# Update Sitemap Before Commit
+
+## Description
+This rule ensures that the sitemap is automatically updated before any commit is made.
+
+## Trigger
+- Event: Before commit
+- Files: Any changes that affect site content
+
+## Actions
+1. Check if sitemap.xml exists in the project root
+2. Generate/update sitemap.xml with current site structure
+3. Add sitemap.xml to the commit if modified
+
+## Example Implementation
+```bash
+#!/bin/bash
+# Pre-commit hook script
+
+# Check if sitemap generator is installed
+if ! command -v sitemap-generator &> /dev/null; then
+    echo "Error: sitemap-generator not found"
+    exit 1
+fi
+
+# Generate sitemap
+sitemap-generator generate
+
+# Add sitemap to commit if changed
+git add sitemap.xml
+```
+
+## Notes
+- Ensure your sitemap generator tool is installed and configured
+- Adjust the paths according to your project structure
+- Consider excluding certain paths/files from sitemap generation

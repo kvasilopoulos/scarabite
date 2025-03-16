@@ -65,8 +65,12 @@ class HeadContent extends HTMLElement {
             <meta property="og:description" content="${currentMetaDesc.en}">
             <meta property="og:description:el" content="${currentMetaDesc.el}">
             <meta property="og:image" content="${baseUrl}/resources/img/logo2.png">
+            <meta property="og:image:width" content="1200">
+            <meta property="og:image:height" content="630">
+            <meta property="og:site_name" content="Scarabite">
             <meta property="og:locale" content="en_US">
             <meta property="og:locale:alternate" content="el_GR">
+            <meta property="og:updated_time" content="${new Date().toISOString()}">
             
             <!-- Twitter -->
             <meta name="twitter:card" content="summary_large_image">
@@ -78,7 +82,7 @@ class HeadContent extends HTMLElement {
             <!-- Language Alternates -->
             <link rel="alternate" hreflang="en" href="${baseUrl}/${currentPath}">
             <link rel="alternate" hreflang="el" href="${baseUrl}/el/${currentPath}">
-            <link rel="canonical" href="${baseUrl}/${currentPath}">
+            <link rel="canonical" href="${baseUrl}${currentPath === 'index.html' ? '/' : '/' + currentPath}">
             
             <!-- Favicon and Stylesheets -->
             <link rel="icon" href="resources/img/logo2.png" type="image/png">
@@ -134,7 +138,32 @@ class HeadContent extends HTMLElement {
                     "https://www.facebook.com/scarabite",
                     "https://twitter.com/scarabite",
                     "https://www.linkedin.com/company/scarabite"
-                ]
+                ],
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "name": "Generative AI Solutions",
+                            "description": "AI-driven systems for text, images, and insights generation"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Natural Language Processing",
+                            "description": "Machine learning solutions for language understanding and generation"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Web Crawling & Data Scraping",
+                            "description": "Automated data extraction and structuring services"
+                        },
+                        {
+                            "@type": "Offer",
+                            "name": "Data Pipeline Automation",
+                            "description": "Automated workflows for data collection and processing"
+                        }
+                    ]
+                }
             }
             </script>
             

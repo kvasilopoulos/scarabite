@@ -3,6 +3,7 @@
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://scarabite.com/</loc>
+        <lastmod>2024-03-20</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://scarabite.com/"/>
         <xhtml:link rel="alternate" hreflang="el" href="https://scarabite.com/el/"/>
         <changefreq>weekly</changefreq>
@@ -10,6 +11,7 @@
     </url>
     <url>
         <loc>https://scarabite.com/services.html</loc>
+        <lastmod>2024-03-20</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://scarabite.com/services.html"/>
         <xhtml:link rel="alternate" hreflang="el" href="https://scarabite.com/el/services.html"/>
         <changefreq>weekly</changefreq>
@@ -17,6 +19,7 @@
     </url>
     <url>
         <loc>https://scarabite.com/about.html</loc>
+        <lastmod>2024-03-20</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://scarabite.com/about.html"/>
         <xhtml:link rel="alternate" hreflang="el" href="https://scarabite.com/el/about.html"/>
         <changefreq>monthly</changefreq>
@@ -24,6 +27,7 @@
     </url>
     <url>
         <loc>https://scarabite.com/contact.html</loc>
+        <lastmod>2024-03-20</lastmod>
         <xhtml:link rel="alternate" hreflang="en" href="https://scarabite.com/contact.html"/>
         <xhtml:link rel="alternate" hreflang="el" href="https://scarabite.com/el/contact.html"/>
         <changefreq>monthly</changefreq>
