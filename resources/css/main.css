@@ -1036,3 +1036,123 @@ body {
 
 
 }
+
+/* 404 Error Page */
+.error-container {
+    text-align: center;
+    padding: 100px 20px;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.error-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width: 100%;
+    height: 150%;
+    background-image: repeating-linear-gradient(45deg,
+            transparent,
+            transparent 2px,
+            rgba(6, 17, 39, 0.1) 2px,
+            rgba(6, 17, 39, 0.1) 3px);
+    -webkit-mask-image: radial-gradient(ellipse 80% 50% at 90% 20%,
+            black,
+            transparent);
+    mask-image: radial-gradient(ellipse 80% 50% at 90% 20%,
+            black,
+            transparent);
+}
+
+.error-code {
+    font-size: 120px;
+    color: var(--deep-blue);
+    margin-bottom: 20px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-message {
+    font-size: 2.5rem;
+    color: var(--brand-teal);
+    margin-bottom: 30px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+.error-container p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.helpful-links {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.helpful-links a {
+    color: var(--deep-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.helpful-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brand-teal);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.helpful-links a:hover {
+    color: var(--brand-teal);
+}
+
+.helpful-links a:hover::after {
+    transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 80px;
+    }
+
+    .error-message {
+        font-size: 2rem;
+    }
+
+    .error-container p {
+        font-size: 1.1rem;
+    }
+
+    .helpful-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

@@ -51,6 +51,13 @@ class HeadContent extends HTMLElement {
             <meta name="geo.position" content="39.074208;21.824312">
             <meta name="ICBM" content="39.074208, 21.824312">
             
+            <!-- Performance Optimizations -->
+            <link rel="preconnect" href="https://cdn.jsdelivr.net">
+            <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+            <link rel="preload" as="style" href="resources/css/main.css">
+            <link rel="preload" as="script" href="components/header.js">
+            <link rel="preload" as="script" href="components/footer.js">
+            
             <!-- Open Graph / Facebook -->
             <meta property="og:type" content="website">
             <meta property="og:url" content="${baseUrl}/${currentPath}">
@@ -75,9 +82,14 @@ class HeadContent extends HTMLElement {
             
             <!-- Favicon and Stylesheets -->
             <link rel="icon" href="resources/img/logo2.png" type="image/png">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
             <link rel="stylesheet" href="resources/css/main.css">
+            
+            <!-- Social Media Integration -->
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <script async src="https://platform.linkedin.com/badges/js/profile.js" type="text/javascript"></script>
             
             <!-- Schema.org Markup -->
             <script type="application/ld+json">
@@ -117,9 +129,25 @@ class HeadContent extends HTMLElement {
                     "email": "admin@scarabite.com",
                     "availableLanguage": ["English", "Greek"]
                 },
-                "areaServed": ["US", "GR", "EU"]
+                "areaServed": ["US", "GR", "EU"],
+                "sameAs": [
+                    "https://www.facebook.com/scarabite",
+                    "https://twitter.com/scarabite",
+                    "https://www.linkedin.com/company/scarabite"
+                ]
             }
             </script>
+            
+            <!-- DNS Prefetch -->
+            <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+            <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+            <link rel="dns-prefetch" href="//www.googletagmanager.com">
+            
+            <!-- Security Headers -->
+            <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:; font-src 'self' https: data:;">
+            <meta http-equiv="X-Content-Type-Options" content="nosniff">
+            <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+            <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
         `;
     }
 }
