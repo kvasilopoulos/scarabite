@@ -1,0 +1,5 @@
+﻿{
+  "Description": "Domain ownership verification file for Microsoft 365 - place in the website root",
+  "Domain": "scarabite.com",
+  "Id": "5dee68e9-515f-49f2-897a-ead0568e7d94"
+}
