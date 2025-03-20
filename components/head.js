@@ -130,7 +130,7 @@ class HeadContent extends HTMLElement {
                 "contactPoint": {
                     "@type": "ContactPoint",
                     "contactType": "customer support",
-                    "email": "admin@scarabite.com",
+                    "email": "contact@scarabite.com",
                     "availableLanguage": ["English", "Greek"]
                 },
                 "areaServed": ["US", "GR", "EU"],

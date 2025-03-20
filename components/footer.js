@@ -12,7 +12,7 @@ const footerTemplate = `
           <br>
           <p>
             <i class="fas fa-envelope"></i> <strong>Email:</strong><br>
-            <span class="ms-4"><a href="mailto:admin@scarabite.com">admin@scarabite.com</a></span>
+            <span class="ms-4"><a href="mailto:contact@scarabite.com">contact@scarabite.com</a></span>
           </p>
         </div>
         <div class="col-md-4 footer-contact">
