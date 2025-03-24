@@ -160,96 +160,7 @@
         <p class="section-subtitle">Comprehensive AI & Data Solutions for Your Business</p>
       </div>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-robot"></i>
-            </div>
-            <h3>Advanced AI Systems</h3>
-            <ul class="service-list">
-              <li>Enterprise LLM Integration</li>
-              <li>Autonomous AI Agents</li>
-              <li>Multi-agent Orchestration</li>
-              <li>AI Tool Development</li>
-              <li>Cognitive Architecture Design</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-language"></i>
-            </div>
-            <h3>Language Intelligence</h3>
-            <ul class="service-list">
-              <li>RAG & Knowledge Systems</li>
-              <li>Semantic Search & Analysis</li>
-              <li>Document Understanding</li>
-              <li>Conversational Systems</li>
-              <li>Cross-lingual Processing</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-spider"></i>
-            </div>
-            <h3>Data Extraction</h3>
-            <ul class="service-list">
-              <li>Intelligent web scraping</li>
-              <li>Structured data pipeline</li>
-              <li>Advanced proxy solutions</li>
-              <li>Real-time monitoring</li>
-              <li>Ethical data collection</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-project-diagram"></i>
-            </div>
-            <h3>Data Pipeline Automation</h3>
-            <ul class="service-list">
-              <li>Automated ETL workflows</li>
-              <li>Data integration & validation</li>
-              <li>Performance optimization</li>
-              <li>Real-time processing</li>
-              <li>Scalable architecture</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <h3>Software Development</h3>
-            <ul class="service-list">
-              <li>Full-stack solutions</li>
-              <li>Cloud-native applications</li>
-              <li>API development</li>
-              <li>DevOps automation</li>
-              <li>Continuous deployment</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h3>AWS Cloud Services</h3>
-            <ul class="service-list">
-              <li>Infrastructure design</li>
-              <li>Serverless architecture</li>
-              <li>Security & compliance</li>
-              <li>Cost optimization</li>
-              <li>24/7 monitoring</li>
-            </ul>
-          </div>
-        </div>
+        <!-- Services will be populated here -->
       </div>
     </div>
   </section>
@@ -316,6 +227,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
+  </script>
+  <script src="resources/js/services-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      populateServiceCards('services');
+    });
   </script>
 </body>
 
