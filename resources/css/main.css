@@ -385,8 +385,8 @@ body {
     margin-bottom: 2rem;
     transition: all 0.4s ease;
     position: relative;
-    overflow: hidden;
-    height: 200px;
+    overflow: visible;
+    height: 250px;
     display: flex;
     align-items: center;
 }
@@ -415,7 +415,7 @@ body {
 
 .feature-content {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     height: 100%;
 }
@@ -430,6 +430,7 @@ body {
     justify-content: center;
     flex-shrink: 0;
     transition: all 0.4s ease;
+    margin-top: 0.25rem;
 }
 
 .feature-icon-wrapper i {
@@ -444,19 +445,19 @@ body {
 
 .feature-text {
     flex: 1;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .feature-text h3 {
     font-size: 1.4rem;
     font-weight: 600;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     position: relative;
     padding-bottom: 15px;
+    line-height: 1.2;
 }
 
 .feature-text h3::after {
@@ -482,10 +483,10 @@ body {
     text-align: justify;
     -webkit-hyphens: auto;
     hyphens: auto;
+    overflow: visible;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 /* Services section */
@@ -548,14 +549,17 @@ body {
 
 .service-card {
     background-color: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     height: 100%;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .service-card::before {
@@ -564,16 +568,16 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: var(--brand-teal);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .service-card:hover::before {
@@ -581,19 +585,19 @@ body {
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
+    width: 45px;
+    height: 45px;
     background: linear-gradient(135deg, var(--brand-teal) 0%, var(--neutral-beige) 100%);
-    border-radius: 50%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     transition: all 0.3s ease;
 }
 
 .service-icon i {
-    font-size: 2rem;
+    font-size: 1.25rem;
     color: white;
 }
 
@@ -603,11 +607,11 @@ body {
 
 .service-card h3 {
     color: var(--deep-blue);
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 8px;
 }
 
 .service-card h3::after {
@@ -615,42 +619,97 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
+    width: 30px;
     height: 2px;
     background: var(--brand-teal);
     transition: width 0.3s ease;
 }
 
 .service-card:hover h3::after {
-    width: 60px;
+    width: 50px;
 }
 
 .service-list {
     list-style: none;
     padding-left: 0;
-    margin-top: 1.5rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 }
 
 .service-list li {
-    margin-bottom: 1rem;
     position: relative;
-    padding-left: 2rem;
     color: #555;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.4;
     display: flex;
     align-items: center;
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    background: rgba(23, 200, 180, 0.03);
+    transition: all 0.3s ease;
 }
 
-.service-list li i {
-    color: var(--brand-teal);
-    margin-right: 1rem;
-    font-size: 0.9rem;
-    transition: transform 0.3s ease;
+.service-list li:hover {
+    background: rgba(23, 200, 180, 0.08);
+    transform: translateX(3px);
 }
 
-.service-card:hover .service-list li i {
-    transform: translateX(5px);
+.service-list li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--brand-teal);
+    border-radius: 50%;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.service-list li:hover::before {
+    transform: scale(1.5);
+    box-shadow: 0 0 8px var(--brand-teal);
+}
+
+.service-card:hover .service-list li {
+    animation: slideInFromLeft 0.4s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-8px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.service-card:hover .service-list li:nth-child(1) { animation-delay: 0s; }
+.service-card:hover .service-list li:nth-child(2) { animation-delay: 0.08s; }
+.service-card:hover .service-list li:nth-child(3) { animation-delay: 0.16s; }
+.service-card:hover .service-list li:nth-child(4) { animation-delay: 0.24s; }
+.service-card:hover .service-list li:nth-child(5) { animation-delay: 0.32s; }
+.service-card:hover .service-list li:nth-child(6) { animation-delay: 0.4s; }
+
+@media (max-width: 768px) {
+    .service-card {
+        padding: 1.25rem;
+    }
+    
+    .service-list li {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .service-list li::before {
+        width: 3px;
+        height: 3px;
+        margin-right: 6px;
+    }
 }
 
 /* How We Work section */
@@ -955,24 +1014,24 @@ body {
     }
 
     .service-card {
-        padding: 2rem;
+        padding: 1.75rem;
     }
 
+    .service-list {
+        font-size: 0.95rem;
+    }
+    
     .service-icon {
-        width: 60px;
-        height: 60px;
+        width: 45px;
+        height: 45px;
     }
 
     .service-icon i {
-        font-size: 1.8rem;
+        font-size: 1.25rem;
     }
 
     .service-card h3 {
-        font-size: 1.4rem;
-    }
-
-    .service-list li {
-        font-size: 1rem;
+        font-size: 1.3rem;
     }
 
     .why-us {
