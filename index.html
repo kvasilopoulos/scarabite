@@ -6,26 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Scarabite | Powering Intelligence </title>
   <head-content></head-content>
-  <!-- Preload CSS -->
-  <link rel="preload" href="resources/css/main.css" as="style">
   <link rel="stylesheet" href="resources/css/main.css">
-  <!-- Prevent FOUC -->
-  <style>
-    .no-fouc {
-      visibility: hidden;
-    }
-
-    html.js-loaded .no-fouc {
-      visibility: visible;
-    }
-  </style>
-  <script>
-    // Add js-loaded class as soon as possible
-    document.documentElement.classList.add('js-loaded');
-  </script>
 </head>
 
-<body class="no-fouc">
+<body>
   <site-header></site-header>
 
   <header class="hero">

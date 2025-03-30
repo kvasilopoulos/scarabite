@@ -6,26 +6,10 @@
 <head>
   <title>About Us | Scarabite</title>
   <head-content></head-content>
-  <!-- Preload CSS -->
-  <link rel="preload" href="resources/css/about.css" as="style">
   <link rel="stylesheet" href="resources/css/about.css">
-  <!-- Prevent FOUC -->
-  <style>
-    .no-fouc {
-      visibility: hidden;
-    }
-
-    html.js-loaded .no-fouc {
-      visibility: visible;
-    }
-  </style>
-  <script>
-    // Add js-loaded class as soon as possible
-    document.documentElement.classList.add('js-loaded');
-  </script>
 </head>
 
-<body class="no-fouc">
+<body>
   <site-header></site-header>
 
   <section class="about-hero">

@@ -36,11 +36,30 @@ class HeadContent extends HTMLElement {
 
         const currentMetaDesc = metaDescriptions[currentPath] || metaDescriptions['index.html'];
         
+        // Critical CSS to prevent FOUC
+        const criticalCSS = `
+            body { visibility: hidden; }
+            body.render { visibility: visible; }
+        `;
+        
         document.head.innerHTML += `
             <!-- Essential Meta Tags -->
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            
+            <!-- Critical CSS -->
+            <style id="critical-css">${criticalCSS}</style>
+            
+            <!-- Preload Critical Resources -->
+            <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+            <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+            <link rel="preload" href="resources/css/main.css" as="style">
+            
+            <!-- Stylesheets -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <link rel="stylesheet" href="resources/css/main.css">
             
             <!-- Primary Meta Tags -->
             <meta name="description" content="${currentMetaDesc.en}">
@@ -54,7 +73,6 @@ class HeadContent extends HTMLElement {
             <!-- Performance Optimizations -->
             <link rel="preconnect" href="https://cdn.jsdelivr.net">
             <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-            <link rel="preload" as="style" href="resources/css/main.css">
             <link rel="preload" as="script" href="components/header.js">
             <link rel="preload" as="script" href="components/footer.js">
             
@@ -84,11 +102,8 @@ class HeadContent extends HTMLElement {
             <link rel="alternate" hreflang="el" href="${baseUrl}/el/${currentPath}">
             <link rel="canonical" href="${baseUrl}${currentPath === 'index.html' ? '/' : '/' + currentPath}">
             
-            <!-- Favicon and Stylesheets -->
+            <!-- Favicon -->
             <link rel="icon" href="resources/img/logo2.png" type="image/png">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
-            <link rel="stylesheet" href="resources/css/main.css">
             
             <!-- Social Media Integration -->
             <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
@@ -178,6 +193,13 @@ class HeadContent extends HTMLElement {
             <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
             <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
         `;
+
+        // Remove critical CSS and show the page when all styles are loaded
+        window.addEventListener('load', () => {
+            document.body.classList.add('render');
+            const criticalCSS = document.getElementById('critical-css');
+            if (criticalCSS) criticalCSS.remove();
+        });
     }
 }
 
