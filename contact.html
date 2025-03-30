@@ -6,10 +6,26 @@
 <head>
   <title>Contact Us | Scarabite</title>
   <head-content></head-content>
+  <!-- Preload CSS -->
+  <link rel="preload" href="resources/css/contact.css" as="style">
   <link rel="stylesheet" href="resources/css/contact.css">
+  <!-- Prevent FOUC -->
+  <style>
+    .no-fouc {
+      visibility: hidden;
+    }
+
+    html.js-loaded .no-fouc {
+      visibility: visible;
+    }
+  </style>
+  <script>
+    // Add js-loaded class as soon as possible
+    document.documentElement.classList.add('js-loaded');
+  </script>
 </head>
 
-<body>
+<body class="no-fouc">
   <site-header></site-header>
 
   <section class="contact-hero">

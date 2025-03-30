@@ -5,11 +5,28 @@
 
 <head>
   <title>Our Services | Scarabite</title>
-  <link rel="stylesheet" href="resources/css/services.css">
+
   <head-content></head-content>
+  <!-- Preload CSS -->
+  <link rel="preload" href="resources/css/services.css" as="style">
+  <link rel="stylesheet" href="resources/css/services.css">
+  <!-- Prevent FOUC -->
+  <style>
+    .no-fouc {
+      visibility: hidden;
+    }
+
+    html.js-loaded .no-fouc {
+      visibility: visible;
+    }
+  </style>
+  <script>
+    // Add js-loaded class as soon as possible
+    document.documentElement.classList.add('js-loaded');
+  </script>
 </head>
 
-<body>
+<body class="no-fouc">
   <site-header></site-header>
 
   <div id="services-container">
