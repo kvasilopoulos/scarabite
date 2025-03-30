@@ -1,12 +1,5 @@
 @import 'main.css';
 
-:root {
-    --brand-teal: #2A9D8F;
-    --neutral-beige: #F4F1DE;
-    --deep-blue: #264653;
-    --light-teal: rgba(42, 157, 143, 0.1);
-}
-
 /* About Hero Section */
 .about-hero {
     padding: 8rem 0 4rem;
