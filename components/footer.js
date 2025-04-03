@@ -9,7 +9,10 @@ const footerTemplate = `
             <span class="ms-4">30 N Gould St Ste R<br>
               <span class="ms-4">Sheridan, WY 82801</span>
           </p>
-          <br>
+          <p>
+            <i class="fas fa-phone"></i> <strong>Phone:</strong><br>
+            <span class="ms-4"><a href="tel:+13074390028">+1 307 439 0028</a></span>
+          </p>
           <p>
             <i class="fas fa-envelope"></i> <strong>Email:</strong><br>
             <span class="ms-4"><a href="mailto:contact@scarabite.com">contact@scarabite.com</a></span>
