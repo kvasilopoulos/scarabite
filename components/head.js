@@ -36,25 +36,21 @@ class HeadContent extends HTMLElement {
 
         const currentMetaDesc = metaDescriptions[currentPath] || metaDescriptions['index.html'];
         
-        // Critical CSS to prevent FOUC
-        const criticalCSS = `
-            body { visibility: hidden; }
-            body.render { visibility: visible; }
-        `;
-        
         document.head.innerHTML += `
             <!-- Essential Meta Tags -->
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Compatible" content="ie=edge">
             
-            <!-- Critical CSS -->
-            <style id="critical-css">${criticalCSS}</style>
-            
             <!-- Preload Critical Resources -->
-            <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
-            <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
-            <link rel="preload" href="resources/css/main.css" as="style">
+            <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+            <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+            
+            <!-- Fallback for disabled JavaScript -->
+            <noscript>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            </noscript>
             
             <!-- Stylesheets -->
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -194,12 +190,14 @@ class HeadContent extends HTMLElement {
             <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
         `;
 
-        // Remove critical CSS and show the page when all styles are loaded
-        window.addEventListener('load', () => {
+        // Show the page when all styles are loaded
+        if (document.readyState === 'complete') {
             document.body.classList.add('render');
-            const criticalCSS = document.getElementById('critical-css');
-            if (criticalCSS) criticalCSS.remove();
-        });
+        } else {
+            window.addEventListener('load', () => {
+                document.body.classList.add('render');
+            });
+        }
     }
 }
 

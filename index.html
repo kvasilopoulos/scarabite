@@ -5,8 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Scarabite | Powering Intelligence </title>
+  <!-- Critical CSS -->
+  <style>
+    body {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    body.render {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  <link rel="preload" href="resources/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="resources/css/main.css">
+  </noscript>
   <head-content></head-content>
-  <link rel="stylesheet" href="resources/css/main.css">
 </head>
 
 <body>
